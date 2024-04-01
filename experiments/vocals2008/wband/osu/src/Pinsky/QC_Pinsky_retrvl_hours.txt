@@ -1,0 +1,91 @@
+QC Pinsky retrieval visually by hours
+
+These problems are from missing Kongsberg data and interpolating across
+periods of missing Kongsberg data.
+
+Doppler Velocity shifts AND Suspect sea motion contamination (interpolation problem!)
+319 18:31
+320 05:15
+320 11:20
+320 14:18-
+322 02:18-
+322 05:18-
+322 14:18-
+329 13:53-14:14 +positive velocity shift [still bad, but motion looks fine]
+330 10:14-10:53 +
+
+Suspect sea motion contamination (interpolation but values OK?)
+324 15:34
+324 18:30
+326 08:15-
+326 11:15-
+327 23:18-
+330 03-08:18
+331 09:55-18:59
+
+Doppler Velocity missing
+328 02:18
+328 05:15
+328 08:15
+328 11:18
+328 14:18
+330 05
+330 08:18
+330 11:15
+330 14:18
+335 09:31
+
+Z and V values stuck, constant, bad
+322 08
+
+Reflectivity missing
+320 17:11 -- probably end of cloud
+
+Isolated negative DV not correlated to Z --probably microphysical
+319 00:10
+319 06:50
+322 03:10
+325 07
+326 16:25
+331 09
+332 03:50
+
+GOOD example
+320 06
+324 05
+325 11-12
+326 07:10 upward bubble
+326 12  regular 3-min eddies & fallstreaks
+327 02
+327 20  nonraining Sc, nice eddy velocities
+
+Cu humilis
+321 04-08
+330 00 updrafts
+
+penetrating updrafts
+323 23
+
+virga
+324 04
+
+fallstreaks not corrected adequately
+329 05
+
+interesting case of upward W at base of virga
+335 08
+
+strong rain cell, Vg' important for a change
+335 11
+
+NOTES
+If reflectivity is very weak, then too few V observations will result in missing lookup table. In this case though Vg is negligible and no correction is really required.
+
+Am I excluding times of known motion correction off/failure? No, and somehow they mostly look OK in the retrieval.
+
+Am I excluding Vg>0 from the retrieval? Yes. Looked-up Vg can be positive, but algorithm only subtracts negative values from V.
+
+Missing data in Kongsberg was the problem of the bad velocities and sea motion contamination.
+I have stopped interpolating across missing data (a bug). Second, I am backfilling Kongsberg platform velocities with Crossbow platform velocities integrated from accelerations with an empirical coefficient.
+
+How does the profile of mixing change over warm/cold eddies? Can we say?
